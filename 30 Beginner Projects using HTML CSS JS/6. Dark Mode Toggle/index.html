@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="dark-mode" class="input">
+    <label for="dark-mode" class="label">
+        <div class="circle"></div>
+    </label>
+
+    <script>
+        let inputEl = document.querySelector(".input");
+        let bodyEl = document.querySelector("body");
+
+        inputEl.checked = JSON.parse(localStorage.getItem('mode'));
+        updateBody();
+
+        inputEl.addEventListener('input', ()=> {
+            updateBody();
+            updateLocalStorage();
+        })
+
+        function updateBody() {
+            inputEl.checked ? bodyEl.style.background = "black" : bodyEl.style.background = "white";
+        }
+
+        function updateLocalStorage() {
+            localStorage.setItem('mode', JSON.stringify(inputEl.checked));
+        }
+
+    </script>
+</body>
+</html>
