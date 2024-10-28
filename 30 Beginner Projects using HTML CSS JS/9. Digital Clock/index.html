@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Digital Clock</h2>
+    <div class="clock">
+        <div>
+            <span id="hour">00</span>
+            <span class="text">Hours</span>
+        </div>
+        <div>
+            <span id="minutes">00</span>
+            <span class="text">Minutes</span>
+        </div>
+        <div>
+            <span id="seconds">00</span>
+            <span class="text">Seconds</span>
+        </div>
+        <div>
+            <span id="ampm">AM</span>
+        </div>
+    </div>
+
+    <script>
+
+        let hourEl = document.getElementById("hour");
+        let minuteEl = document.getElementById("minutes");
+        let secondEl = document.getElementById("seconds");
+        let ampmEl = document.getElementById("ampm");
+
+        function updateClock() {
+            const date = new Date();
+
+            let hrs = date.getHours() % 12;
+            hrs = hrs ? hrs : 12;
+            hrs = hrs < 10 ? '0' + hrs : hrs;
+
+            let min = date.getMinutes();
+            min = min < 10 ? '0' + min : min;
+
+            let sec = date.getSeconds();
+            sec = sec < 10 ? '0' + sec : sec;
+
+            let ampm = date.getHours() > 12 ? 'PM' : 'AM';
+
+            hourEl.innerText = hrs;
+            minuteEl.innerText = min;
+            secondEl.innerText = sec;
+            ampmEl.innerText = ampm;
+
+            setTimeout(updateClock, 1000);
+        }
+
+        updateClock();
+    </script>
+</body>
+</html>

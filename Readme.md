@@ -12,6 +12,9 @@ Projects I learnt as part of my web development journey
      5. Preview Random Photos
      6. Dark Mode Toggle
      7. Testimonial Slider
+     8. Realtime Character Counter
+     9. Digital Clock
+     10. Double Landing Page
 
 #### Credits
 [JavaScript King](https://www.youtube.com/@JavaScriptKing)
